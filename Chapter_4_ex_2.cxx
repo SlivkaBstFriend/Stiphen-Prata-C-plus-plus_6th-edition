@@ -1,3 +1,5 @@
+/*. Rewrite Listing 4.4, using the C++ string class instead of char arrays.*/
+
 #include <iostream>
 #include <string>
 
