@@ -1,3 +1,6 @@
+/*Write a program that asks the user to type in numbers.After each entry, the program should report the cumulative sum of the entries to date.The program should
+terminate when the user enters 0.*/
+
 #include <iostream>
 #include <locale.h>
 
