@@ -10,6 +10,7 @@ the value of Cleo’s investment to exceed the value of Daphne’s investment an
 displays the value of both investments at that time.*/
 
 #include <iostream>
+#include <locale.h>
 
 using namespace std;
 
@@ -21,6 +22,8 @@ struct bank
 
 int main ()
 {
+    setlocale(LC_ALL, "Russian");
+
     bank girls[2] =
     {
         {100, 0.10},
