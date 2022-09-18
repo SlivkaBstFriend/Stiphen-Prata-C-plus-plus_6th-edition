@@ -1,3 +1,6 @@
+/*Redo Listing 5.4 using a type array object instead of a built-in array and type
+long double instead of long long. Find the value of 100!*/
+
 #include <iostream>
 #include <array>
 
