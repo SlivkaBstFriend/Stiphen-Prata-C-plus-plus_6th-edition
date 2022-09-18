@@ -1,3 +1,6 @@
+/*Do Programming Exercise 6, but instead of declaring an array of three CandyBar
+structures, use new to allocate the array dynamically.*/
+
 #include <iostream>
 #include <string>
 
