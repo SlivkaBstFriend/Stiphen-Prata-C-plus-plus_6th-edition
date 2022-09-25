@@ -1,7 +1,6 @@
 #include <iostream>
 #include <locale.h>
 #include <array>
-#include <cctype>
 
 using namespace std;
 
@@ -11,10 +10,11 @@ int  main()
 
     cout << "Введите пожертвования через ENTER \n"
         << "Учтите, что можно ввести до 10 пожертвований \n"
-        << "Если хотите прекратить ввод введите символ отличный от цифры. \n";
-    
+        << "Если хотите прекратить ввод введите символ отличный от цифры. \n"
+        << endl;
     cout << "Введите пожертвования: \n";
-    double donat[10];
+    
+    array <double,10> donat;
     int i(0);
     double sr(0);
     for (i; i < 10; ++i)
@@ -23,8 +23,8 @@ int  main()
         if (!cin)
             break;
         sr += donat[i];
-
     }
+
     int j(0);
     short kol(0);
     for (j; j < 10; j++)
