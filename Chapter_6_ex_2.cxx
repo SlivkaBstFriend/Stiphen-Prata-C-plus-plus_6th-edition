@@ -5,21 +5,38 @@
 
 using namespace std;
 
-int main ()
+int main()
 {
-     setlocale(LC_ALL, "ru");
-     array<double, 10> donat;
-     double sredn(0);
-     int i(0);
-     for (i; i < 10; i++)
-     {
-         cout << "Введите пожертвование: ";
-         cin >> donat[i]; 
-          if (isalpha(donat[i]) == true)
-              break;
-          else
-          sredn+= donat[i];    
-     }
-     cout << sredn / i; 
-      return 0;
+    setlocale(LC_ALL, "ru");
+
+    cout << "Введите пожертвования через ENTER \n"
+        << "Учтите, что можно ввести до 10 пожертвований \n"
+        << "Если хотите прекратить ввод введите символ отличный от цифры. \n";
+    
+    cout << "Введите пожертвования: \n";
+    double donat[10];
+    int i(0);
+    double sr(0);
+    for (i; i < 10; i++)
+    {
+
+        cin >> donat[i];
+        if (isalpha(donat[i]) == true)
+            break;
+        sr += donat[i];
+
+    };
+
+    int j(0);
+    short kol(0);
+    for (j; j < 10; j++)
+    {
+        if (donat[j] > (sr / i))
+            kol++;
+    };
+
+    cout << "Среднее значение введенных чисел: " << sr / i << endl;
+    cout << "Количество значений в массиве превышающих среднее: " << kol;
+
+ return 0;
 }
