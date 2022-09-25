@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main()
+int  main()
 {
     setlocale(LC_ALL, "ru");
 
@@ -17,24 +17,22 @@ int main()
     double donat[10];
     int i(0);
     double sr(0);
-    for (i; i < 10; i++)
+    for (i; i < 10; ++i)
     {
-
         cin >> donat[i];
-        if (isalpha(donat[i]) == true)
+        if (!cin)
             break;
         sr += donat[i];
 
-    };
-
+    }
     int j(0);
     short kol(0);
     for (j; j < 10; j++)
     {
         if (donat[j] > (sr / i))
             kol++;
-    };
-
+    }
+   
     cout << "Среднее значение введенных чисел: " << sr / i << endl;
     cout << "Количество значений в массиве превышающих среднее: " << kol;
 
