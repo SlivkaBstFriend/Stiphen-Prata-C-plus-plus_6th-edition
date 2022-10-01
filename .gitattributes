@@ -1,1 +1,1 @@
-dist/* linguist-vendored=false
+*.pro linguist-language=C++
