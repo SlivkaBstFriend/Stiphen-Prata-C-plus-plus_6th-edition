@@ -9,19 +9,19 @@ int main()
 	setlocale(LC_ALL, "ru");
 	using namespace std;
 
-	ifstream inFile;												 // объект для обработки файлового ввода 
-	inFile.open("test_1.txt");										 // ассоциирование inFile с файлом 
-	if (!inFile.is_open())											 // не удалось открыть файл 
+	ifstream inFile;							// объект для обработки файлового ввода 
+	inFile.open("test_1.txt");						// ассоциирование inFile с файлом 
+	if (!inFile.is_open())							// не удалось открыть файл 
 	{
 		cout << "Невозможно открыть файл: test_1.txt" << endl;
 		exit(EXIT_FAILURE);
 	}
 	char value;
-	int count = 0;													 // количество прочитанных элементов 
-	while (inFile >> value)											 // пока ввод успешен и не достигнут EOF 
+	int count = 0;								// количество прочитанных элементов 
+	while (inFile >> value)							// пока ввод успешен и не достигнут EOF 
 	{
 		if (isalnum(value))
-			++count;												 // еще один элемент прочитан
+			++count;						// еще один элемент прочитан
 	}
 	if (inFile.eof())
 		cout << "Достигнут конец файла.\n";
@@ -33,9 +33,9 @@ int main()
 		cout << "Данные для обработки отсутствуют.\n";
 	else
 	{
-		cout << "Кол-во символов: " << count << endl;				 // прочитано элементов 
+		cout << "Кол-во символов: " << count << endl;			// прочитано элементов 
 	}
-	inFile.close();													 // завершение работы с файлом 
+	inFile.close();								// завершение работы с файлом 
 
 	std::cin.get();
 	std::cin.get();
