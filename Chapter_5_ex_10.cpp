@@ -4,9 +4,7 @@ one asterisk in the first row, two in the second row,and so on. For each row, th
 asterisks are preceded by the number of periods needed to make all the rows
 display a total number of characters equal to the number of rows.A sample run
 would look like this:
-
 Enter number of rows: 5
-
 ....*
 ...**
 ..***
@@ -20,23 +18,26 @@ Enter number of rows: 5
 
 using namespace std;
 
-int main() 
+int main()
 {
     setlocale(LC_ALL, "ru");
-    
-    
-        cout << "Введите количество строк: ";
-        int kol(0);
-        cin >> kol;
-        for (int j = kol; j > 0; j-- )
+
+
+    cout << "Введите количество строк: ";
+    int kol(0);
+    cin >> kol;
+    for (int j = kol; j > 0; j--)
+    {
+        for (int i = 0; i + 1 < j; i++)
         {
-            for (int i = 0; i < j; i++)
-            {
-                cout << '.';
-            }
+            cout << '.';
+        }
+        for (int i = kol; i >= j; i--)
+        {
             cout << '*';
-              cout  << endl;
-            
-         }
-             return 0;
-}     
+        }
+     cout << endl;
+
+    }
+    return 0;
+}
