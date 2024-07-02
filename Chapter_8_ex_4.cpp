@@ -40,18 +40,11 @@
 //компилятора, может понадобиться изменить имена заголовочных файлов и удалить
 //директиву using.)
 
-
-
 #include <iostream>
 #include <locale>
 #include <cstring> // для strlen(), strcpy()
 
-
-
-
 using namespace std;
-
-
 
 struct stringy
 {
@@ -60,7 +53,6 @@ struct stringy
 };
 
 void set(stringy& name, char* arr);
-
 void show(const stringy& str, int n = 1);
 void show(const char* arr, int n = 1);
 // Здесь размещаются прототипы функций set() и show()
@@ -91,7 +83,6 @@ void set(stringy& name, char* arr)
 	name.str = new char[strlen(arr) + 1];
 	strcpy_s(name.str, strlen(arr) + 1, arr);
 	name.ct = strlen(arr);
-	
 }
 
 void show(const stringy& name, int n)
