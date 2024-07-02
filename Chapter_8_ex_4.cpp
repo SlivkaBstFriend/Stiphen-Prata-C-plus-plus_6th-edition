@@ -48,6 +48,7 @@
 
 
 
+
 using namespace std;
 
 
@@ -58,8 +59,10 @@ struct stringy
 	int ct; // длина строки (не считая символа '\0') 
 };
 
-char * set(stringy& str, char* arr);
+void set(stringy& name, char* arr);
 
+void show(const stringy& str, int n = 1);
+void show(const char* arr, int n = 1);
 // Здесь размещаются прототипы функций set() и show()
 
 int main()
@@ -75,9 +78,30 @@ int main()
 	show(beany); // выводит строковый член структуры один раз 
 	show(beany, 2); // выводит строковый член структуры два раза 
 	testing[0] = 'D';
-	testing[1] = ' u';
+	testing[1] = 'u';
 	show(testing); // выводит сроку testing один раз 
 	show(testing, 3); // выводит строку testing три раза 
 	show("Done!");
+	delete[] beany.str;
 	return 0;
+}
+
+void set(stringy& name, char* arr)
+{
+	name.str = new char[strlen(arr) + 1];
+	strcpy_s(name.str, strlen(arr) + 1, arr);
+	name.ct = strlen(arr);
+	
+}
+
+void show(const stringy& name, int n)
+{
+	for (int i = 0; i < n; i++)
+		cout << endl << name.str; 
+}
+
+void show(const char* arr, int n)
+{
+	cout << endl << arr;
+	
 }
