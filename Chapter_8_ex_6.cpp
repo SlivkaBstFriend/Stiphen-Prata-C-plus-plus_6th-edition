@@ -14,59 +14,85 @@
 #include<iostream>
 #include<locale>
 #include<vector>
+#include<cstring>
+#include <string> 
 
 using namespace std;
 
-template <class T >
+template <class T>
 T maxn(vector<T> arr, int n);
 
-
+template <>
+char* maxn(vector<char*> arr, int n);
 
 int main() {
-	setlocale(LC_ALL, "ru");
+    setlocale(LC_ALL, "ru");
 
+    vector<int> arr_int;
+    vector<double> arr_double;
+    vector<char*> arr_char;
 
+    cout << "\nВведите integer элементы массива (чтобы закончитить введите q): \n";
+    int kol = 0;
 
-	vector<int> arr_int;
-	vector<double> arr_double;
+    while (cin) {
+        int element;
+        cin >> element;
+        arr_int.push_back(element); 
+        kol++;
+    }
+    cin.clear();
+    cin.ignore();
 
-	cout << "\nВведите integer элементы массива (чтобы закончитить введите q): \n";
-	int kol = 0;
-	
-	while (cin) {
-		int element;
-		cin >> element;
-		arr_int.push_back(element); // Добавляем элемент в конец вектора
-		kol++;
-	}
-	cin.clear();
-	cin.ignore();
+    cout << "\nМаксимальный элемент введенного вами массива равен: " << maxn(arr_int, kol) << endl;
+    kol = 0;
 
-	cout <<"\nМаксимальный элемент введенного вами массива равен: " << maxn(arr_int, kol) << endl;
-	kol = 0;
+    cout << "\nВведите double элементы массива (чтобы закончитить введите q): \n";
+    while (cin) {
+        double element;
+        cin >> element;
+        arr_double.push_back(element); 
+        kol++;
+    }
+    cin.clear();
+    cin.ignore();
 
-	cout << "\nВведите double элементы массива (чтобы закончитить введите q): \n";
-	while (cin) {
-		double element;
-		cin >> element;
-		arr_double.push_back(element); // Добавляем элемент в конец вектора
-		kol++;
-	}
-	cout << "\nМаксимальный элемент введенного вами массива равен: " << maxn(arr_double, kol) << endl;	
-	return 0;
+    cout << "\nМаксимальный элемент введенного вами массива равен: " << maxn(arr_double, kol) << endl;
+    kol = 0;
+
+    cout << "\nВведите double элементы массива (чтобы закончитить введите q): \n";
+    while (cin) {
+        char element[50];
+        cin.getline(element, 50);
+        if (*element == 'q')
+            break;
+        arr_char.push_back(element); 
+
+        kol++;
+
+    }
+    char* pt = maxn(arr_char, kol);
+    cout << "\nМаксимальный элемент введенного вами массива равен: " << pt << endl;
+
+    return 0;
 }
 
 template <class T>
 T maxn(vector<T> arr, int n) {
-	T max = arr[0];
-	for (int i = 0; i < n; i++) {
-		if (arr[i] > max)
-			max = arr[i];
-	}
-	return max;
+    T max = arr[0];
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > max)
+            max = arr[i];
+    }
+    return max;
 }
-
 template <>
-char* maxn(char arr[], int size) {
-
+char* maxn(vector<char*> arr, int n) {
+    char* max =  arr[0];
+    for (int i = 0; i < n; i++) {
+        if (strlen(arr[i]) > strlen(max)) {
+            max = arr[i];
+        }
+    }
+    return max;
 }
