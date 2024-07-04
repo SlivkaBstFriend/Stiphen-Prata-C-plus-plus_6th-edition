@@ -38,7 +38,7 @@ int main() {
     while (cin) {
         int element;
         cin >> element;
-        arr_int.push_back(element); 
+        arr_int.push_back(element);
         kol++;
     }
     cin.clear();
@@ -51,7 +51,7 @@ int main() {
     while (cin) {
         double element;
         cin >> element;
-        arr_double.push_back(element); 
+        arr_double.push_back(element);
         kol++;
     }
     cin.clear();
@@ -60,20 +60,25 @@ int main() {
     cout << "\nМаксимальный элемент введенного вами массива равен: " << maxn(arr_double, kol) << endl;
     kol = 0;
 
-    cout << "\nВведите double элементы массива (чтобы закончитить введите q): \n";
-    while (cin) {
-        char element[50];
-        cin.getline(element, 50);
-        if (*element == 'q')
+    cout << "\nВводите строки (чтобы закончитить введите q): \n";
+   
+    while (true) {
+        char* element = new char[50];
+        cin >> element;
+        if (cin.fail()) {
+            delete[] element;
             break;
-        arr_char.push_back(element); 
-
-        kol++;
-
+        }
+        if (strcmp(element, "q") != 0) {
+            arr_char.push_back(element);
+            kol++;
+        }
+        else {
+            delete[] element;
+            break;
+        }
     }
-    char* pt = maxn(arr_char, kol);
-    cout << "\nМаксимальный элемент введенного вами массива равен: " << pt << endl;
-
+    cout << "\nМаксимальный элемент введенного вами массива равен: " << maxn(arr_char, kol) << endl;
     return 0;
 }
 
@@ -88,11 +93,12 @@ T maxn(vector<T> arr, int n) {
 }
 template <>
 char* maxn(vector<char*> arr, int n) {
-    char* max =  arr[0];
+    char *max = arr[0];
     for (int i = 0; i < n; i++) {
         if (strlen(arr[i]) > strlen(max)) {
             max = arr[i];
         }
+        cout << arr[i];
     }
     return max;
 }
